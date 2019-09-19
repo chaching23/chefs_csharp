@@ -1,0 +1,28 @@
+﻿@model List<Chef>
+
+<div class="row justify-content-center">
+    <h1 class="text-center col-4">Chefs | <a asp-action="Dishes" asp-controller="Home">Dishes</a></h1>
+    <p class="text-right col-2"><a asp-action="NewChef" asp-controller="Home">Add a Chef</a></p>
+</div>
+
+<h2>The Beastest Chefs!</h2>
+
+<table class="table table-sm">
+    <thead>
+        <tr>
+        <th scope="col">Chef</th>
+        <th scope="col">Age</th>
+        <th scope="col">Number of Dishes</th>
+        </tr>
+    </thead>
+    <tbody>     
+    @foreach(var chef in Model)
+    {
+        <tr>
+            <td>@chef.FirstName @chef.LastName</td>
+            <td>@chef.Age years old</td>
+            <td>@chef.CreatedDishes.Count dishes</td>
+        </tr>
+    }
+    </tbody>
+</table>
